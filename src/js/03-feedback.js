@@ -6,7 +6,7 @@ form.addEventListener('input', throttle(onFormData, 500));
 form.addEventListener('submit', onFormSubmit);
 
 populateTextarea();
-const formData = {};
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) ||{};
 
 function onFormData(evt) {
     formData[evt.target.name] = evt.target.value;
